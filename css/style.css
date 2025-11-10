@@ -1,0 +1,122 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.hero-section {
+    background: linear-gradient(to bottom, #FF5A5F, #23272a); /* Pink to dark gray gradient */
+    background-size: cover;
+}
+
+#rules .card {
+    background-color: #f6f9fc;
+    border: none;
+    transition: transform 0.2s;
+}
+
+#rules .card:hover {
+    transform: translateY(-10px);
+}
+
+#apply.bg-light {
+    background-color: #f6f9fc !important;
+    color: #23272a;
+}
+
+#apply.bg-light h2, #apply.bg-light h3 {
+    color: #23272a;
+}
+
+.btn-primary {
+    background-color: #00A86B; /* Green */
+    border-color: #00A86B;
+}
+
+.btn-primary:hover {
+    background-color: #007F5F;
+    border-color: #007F5F;
+}
+
+.btn-light {
+    background-color: #ffffff;
+    color: #23272a;
+}
+
+.btn-light:hover {
+    background-color: #f6f9fc;
+}
+
+.btn-dark {
+    background-color: #23272a;
+    color: #ffffff;
+}
+
+.btn-dark:hover {
+    background-color: #3a3f42;
+}
+
+.navbar-dark .navbar-brand {
+    font-weight: 700;
+}
+
+.bg-dark {
+    background-color: #23272a !important;
+}
+
+.navbar.fixed-top {
+    background-color: transparent !important;
+    transition: background-color 0.3s ease-in-out;
+    border-radius: 15px;
+}
+
+.navbar.fixed-top .container {
+    transition: all 0.4s ease-in-out;
+    padding-top: 0;
+    padding-bottom: 5px;
+}
+
+.navbar.fixed-top .container-scrolled {
+    max-width: 950px !important;
+    background-color: #1e2124;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.display-5, .display-3 {
+    font-weight: 800 !important;
+}
+
+.main-footer {
+    background-color: #23272a;
+}
+
+.form-step {
+    position: absolute;
+    width: 100%;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0;
+    transform: translateX(100%);
+    visibility: hidden;
+}
+
+.form-step.active {
+    position: relative;
+    opacity: 1;
+    transform: translateX(0);
+    visibility: visible;
+}
+
+.form-step.inactive-prev {
+    transform: translateX(-100%);
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    border-radius: 0;
+}

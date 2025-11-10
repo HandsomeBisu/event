@@ -1,85 +1,199 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-bs-theme="dark">
 <head>
-<!-- 에널리틱스 부분 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QXH238NLY1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-QXH238NLY1');
-</script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-  <title>DPS Event</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-      user-select: none;
-    }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-    }
-
-    body {
-      background-color: #f2f2f7;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 700px;
-      padding: 2rem;
-      margin: 0 auto;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(15px);
-      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-    }
-
-    .container.loaded {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .footer {
-      width: 100%;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #888;
-      background-color: #f2f2f7;
-      margin-top: 2rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DPSMC - 오징어게임</title>
+    <link rel="icon" href="assets/icon.png" type="image/png">
+    <meta property="og:image" content="assets/event.png">
+    <meta property="og:title" content="마인크래프트 오징어게임">
+    <meta property="og:description" content="여기를 눌러 링크를 확인하세요.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="assets/event.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>이 행사는 이미 종료되었어요.</h1>
-    <div class="footer">© DPS Team</div>
-  </div>
 
-  <script>
-    // Initial load animation
-    window.addEventListener('load', () => {
-      document.querySelector('.container').classList.add('loaded');
-    });
-  </script>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+            <img src="assets/logo.png" alt="Logo" style="height: 30px;">
+                오징어게임
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#rules">공지 사항</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="apply.html">참가 신청</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section text-white text-center">
+        <div class="container d-flex flex-column justify-content-center align-items-center" style="height: 100vh;">
+            <h1 class="display-3 fw-bold">목숨을 건 서바이벌</h1>
+            <p class="lead col-lg-6 mx-auto">경쟁에서 승리하고 상금 45,600원을 획득하세요.</p>
+            <div id="countdown" class="mt-4"></div>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-4">
+                <a href="apply.html" class="btn btn-light btn-lg px-4 gap-3">참가 신청하기</a>
+                <a href="#rules" class="btn btn-dark btn-lg px-4">공지 확인</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Participation Requirements Section -->
+    <section id="requirements" class="py-5" data-aos="fade-up">
+        <div class="container">
+            <h2 class="display-5 fw-bold text-center mb-5">참가 조건</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex align-items-center">
+                            <i class="bi bi-check-circle-fill text-success me-3 fs-4"></i>
+                            마인크래프트 계정 보유
+                        </li>
+                        <li class="list-group-item d-flex align-items-center">
+                            <i class="bi bi-check-circle-fill text-success me-3 fs-4"></i>
+                            디스코드 계정 보유 및 DPS 디스코드 서버 참가
+                        </li>
+                        <li class="list-group-item d-flex align-items-center">
+                            <i class="bi bi-check-circle-fill text-success me-3 fs-4"></i>
+                            12월 20일 당일 참가 가능
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section id="rules" class="py-5" data-aos="fade-up">
+        <div class="container">
+            <h2 class="display-5 fw-bold text-center mb-5">공지 사항</h2>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">제목</th>
+                        <th scope="col">작성일</th>
+                    </tr>
+                </thead>
+                <tbody id="post-list">
+                    <!-- Posts will be loaded here dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container text-center">
+            <small class="text-muted">&copy; 2025 DPS Team. All Rights Reserved.</small>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyC-OybGCrxlayMUmcOq6oi-lr8w-C5MJ_c",
+            authDomain: "dpsevent-b526d.firebaseapp.com",
+            projectId: "dpsevent-b526d",
+            storageBucket: "dpsevent-b526d.firebasestorage.app",
+            messagingSenderId: "940533062410",
+            appId: "1:940533062410:web:12aef5874e800e402038f3",
+            measurementId: "G-RWR8ZCB3C2"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // Load posts
+        const postList = document.getElementById('post-list');
+        db.collection('posts').orderBy('createdAt', 'desc').get().then((querySnapshot) => {
+            postList.innerHTML = ''; // Clear existing posts
+            querySnapshot.forEach((doc) => {
+                const post = doc.data();
+                const postDate = post.createdAt.toDate();
+                const dateString = `${postDate.getFullYear()}-${String(postDate.getMonth() + 1).padStart(2, '0')}-${String(postDate.getDate()).padStart(2, '0')}`;
+                const row = `
+                    <tr>
+                        <td><a href="post.html?id=${doc.id}" class="text-white text-decoration-none">${post.title}</a></td>
+                        <td>${dateString}</td>
+                    </tr>
+                `;
+                postList.innerHTML += row;
+            });
+        });
+
+        // Set the date we're counting down to
+        const countDownDate = new Date("Dec 20, 2025 20:00:00").getTime();
+
+        // Update the count down every 1 second
+        const x = setInterval(function() {
+
+            // Get today's date and time
+            const now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            const distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the element with id="countdown"
+            document.getElementById("countdown").innerHTML = `
+                <div class="d-flex justify-content-center align-items-baseline text-white">
+                    <div class="text-center mx-2">
+                        <span class="display-4 fw-bold">${days}</span>
+                        <p class="lead">일</p>
+                    </div>
+                    <span class="display-4 fw-bold mx-1">:</span>
+                    <div class="text-center mx-2">
+                        <span class="display-4 fw-bold">${hours}</span>
+                        <p class="lead">시간</p>
+                    </div>
+                    <span class="display-4 fw-bold mx-1">:</span>
+                    <div class="text-center mx-2">
+                        <span class="display-4 fw-bold">${minutes}</span>
+                        <p class="lead">분</p>
+                    </div>
+                    <span class="display-4 fw-bold mx-1">:</span>
+                    <div class="text-center mx-2">
+                        <span class="display-4 fw-bold">${seconds}</span>
+                        <p class="lead">초</p>
+                    </div>
+                </div>
+            `;
+
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "<h3 class='fw-bold'>게임이 시작되었습니다!</h3>";
+            }
+        }, 1000);
+    </script>
 </body>
 </html>

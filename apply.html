@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오징어게임 참가 신청</title>
+    <link rel="icon" href="assets/icon.png" type="image/png">
+    <meta property="og:image" content="assets/event.png">
+    <meta property="og:title" content="마인크래프트 오징어게임">
+    <meta property="og:description" content="여기를 눌러 링크를 확인하세요.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="assets/event.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/logo.png" alt="Logo" style="height: 30px;">
+                오징어게임
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#rules">게임 규칙</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="apply.html">참가 신청</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Apply Section -->
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="card p-5" style="width: 100%; max-width: 500px;" data-aos="fade-up">
+            <h2 class="display-5 fw-bold text-center mb-4">참가 신청</h2>
+            
+            <!-- Progress Bar -->
+            <div class="progress mb-4" style="height: 5px;">
+                <div class="progress-bar" role="progressbar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+
+            <form id="application-form" class="position-relative" style="min-height: 250px; overflow: hidden;">
+                <!-- Step 1: Name -->
+                <div class="form-step active" data-step="1">
+                    <label for="name" class="form-label fs-4 mb-3">이름을 알려주세요.</label>
+                    <input type="text" class="form-control form-control-lg" id="name" placeholder="반드시 실명 사용">
+                </div>
+                <!-- Step 2: Phone -->
+                <div class="form-step" data-step="2">
+                    <label for="phone" class="form-label fs-4 mb-3">전화번호를 알려주세요.</label>
+                    <input type="tel" class="form-control form-control-lg" id="phone" placeholder="010-1234-5678">
+                </div>
+                <!-- Step 3: Minecraft Nickname -->
+                <div class="form-step" data-step="3">
+                    <label for="minecraftId" class="form-label fs-4 mb-3">마인크래프트 닉네임을 알려주세요.</label>
+                    <input type="text" class="form-control form-control-lg" id="minecraftId" placeholder="대소문자 구분">
+                </div>
+                <!-- Step 4: Discord Username -->
+                <div class="form-step" data-step="4">
+                    <label for="discordId" class="form-label fs-4 mb-3">디스코드 사용자명을 알려주세요.</label>
+                    <input type="text" class="form-control form-control-lg" id="discordId" placeholder="정확한 사용자명 입력">
+                </div>
+                <!-- Step 5: Confirmation -->
+                <div class="form-step" data-step="5">
+                    <h3 class="fs-4 mb-3">준비 되셨나요?</h3>
+                    <ul class="list-group list-group-flush mb-4">
+                        <li class="list-group-item"><strong>이름:</strong> <span id="confirm-name"></span></li>
+                        <li class="list-group-item"><strong>연락처:</strong> <span id="confirm-phone"></span></li>
+                        <li class="list-group-item"><strong>마인크래프트 닉네임:</strong> <span id="confirm-minecraftId"></span></li>
+                        <li class="list-group-item"><strong>디스코드 사용자명:</strong> <span id="confirm-discordId"></span></li>
+                    </ul>
+                    <small class="text-muted mb-3 d-block">제출하면 개인정보처리방침 및 이벤트 약관에 동의하게 됩니다.</small>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="agree">
+                        <label class="form-check-label" for="agree">위 내용을 정확히 입력했습니다.</label>
+                    </div>
+                </div>
+            </form>
+            
+            <!-- Navigation Buttons -->
+            <div class="d-flex justify-content-between mt-4">
+                <button type="button" class="btn btn-secondary btn-lg" id="prev-btn" style="display: none;">이전</button>
+                <button type="button" class="btn btn-primary btn-lg" id="next-btn">다음</button>
+                <button type="submit" class="btn btn-success btn-lg" id="submit-btn" style="display: none;" form="application-form">제출</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container text-center">
+            <small class="text-muted">&copy; 2025 DPS Team. All Rights Reserved.</small>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyC-OybGCrxlayMUmcOq6oi-lr8w-C5MJ_c",
+            authDomain: "dpsevent-b526d.firebaseapp.com",
+            projectId: "dpsevent-b526d",
+            storageBucket: "dpsevent-b526d.firebasestorage.app",
+            messagingSenderId: "940533062410",
+            appId: "1:940533062410:web:12aef5874e800e402038f3",
+            measurementId: "G-RWR8ZCB3C2"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const submitBtn = document.getElementById('submit-btn');
+        const formSteps = document.querySelectorAll('.form-step');
+        const progressBar = document.querySelector('.progress-bar');
+        const applicationForm = document.getElementById('application-form');
+
+        let currentStep = 1;
+        const totalSteps = formSteps.length;
+
+        const updateFormStep = () => {
+            formSteps.forEach((step, index) => {
+                const stepNumber = index + 1;
+                if (stepNumber === currentStep) {
+                    step.classList.add('active');
+                    step.classList.remove('inactive-prev');
+                } else if (stepNumber < currentStep) {
+                    step.classList.remove('active');
+                    step.classList.add('inactive-prev');
+                } else {
+                    step.classList.remove('active', 'inactive-prev');
+                }
+            });
+
+            // Update progress bar
+            const progress = (currentStep - 1) / (totalSteps - 1) * 100;
+            progressBar.style.width = `${progress}%`;
+            progressBar.setAttribute('aria-valuenow', progress);
+
+
+            // Update button visibility
+            prevBtn.style.display = currentStep > 1 ? 'block' : 'none';
+            nextBtn.style.display = currentStep < totalSteps ? 'block' : 'none';
+            submitBtn.style.display = currentStep === totalSteps ? 'block' : 'none';
+        };
+
+        const validateStep = () => {
+            const currentStepElement = document.querySelector(`.form-step[data-step="${currentStep}"]`);
+            const input = currentStepElement.querySelector('input');
+            if (input && !input.value.trim()) {
+                alert('답변을 입력해주세요.');
+                return false;
+            }
+            return true;
+        };
+        
+        const showConfirmation = () => {
+            document.getElementById('confirm-name').textContent = document.getElementById('name').value;
+            document.getElementById('confirm-phone').textContent = document.getElementById('phone').value;
+            document.getElementById('confirm-minecraftId').textContent = document.getElementById('minecraftId').value;
+            document.getElementById('confirm-discordId').textContent = document.getElementById('discordId').value;
+        };
+
+        nextBtn.addEventListener('click', () => {
+            if (validateStep() && currentStep < totalSteps) {
+                currentStep++;
+                if (currentStep === totalSteps) {
+                    showConfirmation();
+                }
+                updateFormStep();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentStep > 1) {
+                currentStep--;
+                updateFormStep();
+            }
+        });
+        
+        applicationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const agree = document.getElementById('agree').checked;
+            if (!agree) {
+                alert('체크박스를 체크하세요.');
+                return;
+            }
+
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const minecraftId = document.getElementById('minecraftId').value;
+            const discordId = document.getElementById('discordId').value;
+
+            db.collection('applicants').add({
+                name: name,
+                phone: phone,
+                minecraftId: minecraftId,
+                discordId: discordId,
+                submittedAt: firebase.firestore.FieldValue.serverTimestamp()
+            })
+            .then(() => {
+                window.location.href = 'apply-success.html';
+            })
+            .catch((error) => {
+                console.error("Error adding document: ", error);
+                alert('신청 중 오류가 발생했습니다. 다시 시도해주세요.');
+            });
+        });
+
+        // Initial setup
+        updateFormStep();
+    </script>
+</body>
+</html>
